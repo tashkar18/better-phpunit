@@ -49,7 +49,7 @@ describe("SSH Tests", function () {
 
         assert.equal(
             extension.getGlobalCommandInstance().output,
-            path.join(vscode.workspace.rootPath, '/vendor/bin/phpunit ') + path.join(vscode.workspace.rootPath, '/tests/SampleTest.php') + " --filter '^.*::test_first$'"
+            path.join(vscode.workspace.rootPath, '/vendor/bin/phpunit ') + path.join(vscode.workspace.rootPath, '/tests/SampleTest.php') + " --filter '^.*::( with data set .*)?$'"
         );
     });
 
@@ -62,7 +62,7 @@ describe("SSH Tests", function () {
 
        assert.equal(
             extension.getGlobalCommandInstance().output,
-            'ssh -tt -p2222 auser@ahost "/some/remote/path/vendor/bin/phpunit /some/remote/path/tests/SampleTest.php --filter \'^.*::test_first$\'"'
+            'ssh -tt -p2222 auser@ahost "/some/remote/path/vendor/bin/phpunit /some/remote/path/tests/SampleTest.php --filter \'^.*::test_first( with data set .*)?$\'"'
         );
     });
 
@@ -77,7 +77,7 @@ describe("SSH Tests", function () {
 
         assert.equal(
             extension.getGlobalCommandInstance().output,
-            'putty -ssh -tt -p2222 auser@ahost "/some/remote/path/vendor/bin/phpunit /some/remote/path/tests/SampleTest.php --filter \'^.*::test_first$\'"'
+            'putty -ssh -tt -p2222 auser@ahost "/some/remote/path/vendor/bin/phpunit /some/remote/path/tests/SampleTest.php --filter \'^.*::test_first( with data set .*)?$\'"'
         );
     });
 });
